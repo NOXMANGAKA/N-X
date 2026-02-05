@@ -1,4 +1,4 @@
-/* Fonts: Playfair Display for logo, Roboto Mono for text */
+/* Fonts: Cinzel Decorative for logo, Roboto Mono for text */
 body, html {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@ body, html {
   color: #fff;
   height: 100%;
   overflow-x: hidden;
-  background: #0b0b0d; /* fallback */
+  background: #0b0b0d;
   position: relative;
 }
 
@@ -22,36 +22,55 @@ canvas#stars {
   z-index: 1;
   max-width: 800px;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* Horizontálně uprostřed */
+  justify-content: flex-start; /* Vertikálně nahoře */
+  min-height: 100vh;
+}
+
+.hero {
+  margin-top: 80px; /* posun více od vrchu */
+  margin-bottom: 60px;
   text-align: center;
 }
 
 .hero .logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cinzel Decorative', serif;
+  font-variant: small-caps;
   font-size: 80px;
   letter-spacing: 6px;
   margin-bottom: 10px;
 }
 
 .hero .tagline {
+  font-family: 'Roboto Mono', monospace;
+  font-variant: small-caps;
   font-size: 18px;
   color: #ccc;
   margin-bottom: 20px;
 }
 
 .hero .intro {
+  font-family: 'Roboto Mono', monospace;
+  font-variant: small-caps;
   font-size: 16px;
   line-height: 1.6;
   max-width: 600px;
-  margin: 0 auto 60px auto;
   color: #eee;
 }
 
+.contact {
+  text-align: center;
+  margin-top: 40px;
+}
+
 .contact h2 {
+  font-family: 'Cinzel Decorative', serif;
   font-size: 28px;
   border-bottom: 1px solid #444;
   padding-bottom: 10px;
   margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
 }
 
 .contact p {
@@ -83,6 +102,7 @@ canvas#stars {
     font-size: 14px;
   }
 }
+
 
 
 
