@@ -1,108 +1,31 @@
-/* Fonts: Cinzel Decorative for logo, Roboto Mono for text */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto Mono', monospace;
-  color: #fff;
-  height: 100%;
-  overflow-x: hidden;
-  background: #0b0b0d;
-  position: relative;
-}
-
-canvas#stars {
-  position: fixed;
-  top:0;
-  left:0;
-  z-index: 0;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  padding: 40px;
+/* Přidání flex layoutu pro levý a pravý sloupec */
+.main-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;       /* Horizontálně uprostřed */
-  justify-content: flex-start; /* Vertikálně nahoře */
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.hero {
-  margin-top: 80px; /* posun více od vrchu */
-  margin-bottom: 60px;
-  text-align: center;
+.left-side {
+  flex: 1;
+  padding-right: 20px;
 }
 
-.hero .logo {
-  font-family: 'Cinzel Decorative', serif;
-  font-variant: small-caps;
-  font-size: 80px;
-  letter-spacing: 6px;
-  margin-bottom: 10px;
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20px;
 }
 
-.hero .tagline {
+.image-placeholder {
+  width: 100%;
+  height: 300px; /* později se dá upravit podle obrázku */
+  border: 2px dashed #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
   font-family: 'Roboto Mono', monospace;
-  font-variant: small-caps;
-  font-size: 18px;
-  color: #ccc;
-  margin-bottom: 20px;
 }
-
-.hero .intro {
-  font-family: 'Roboto Mono', monospace;
-  font-variant: small-caps;
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 600px;
-  color: #eee;
-}
-
-.contact {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.contact h2 {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 28px;
-  border-bottom: 1px solid #444;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.contact p {
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-.contact a {
-  color: #fff; /* bílá */
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.contact a:hover {
-  color: #f39c12;
-}
-
-.contact i {
-  margin-right: 10px;
-  color: #f39c12;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .hero .logo {
-    font-size: 50px;
-  }
-  .hero .tagline {
-    font-size: 14px;
-  }
-}
-
-
-
-
