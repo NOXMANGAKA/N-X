@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
@@ -20,11 +20,11 @@
 
   <main class="container">
 
-    <!-- Hero and contact section with right-side image placeholder -->
+    <!-- Flex layout: levá obsahová část + pravá pro obrázek -->
     <div class="main-content">
-      <div class="left-side">
 
-        <!-- Hero section -->
+      <!-- Levá část: Hero + Kontakt -->
+      <div class="left-side">
         <section class="hero">
           <h1 class="logo">NØX</h1>
           <p class="tagline">mangaka · illustration</p>
@@ -34,7 +34,6 @@
           </p>
         </section>
 
-        <!-- Contact section -->
         <section class="contact">
           <h2>Contact</h2>
           <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka?igsh=NmR6dnM3a3VxZzV1" target="_blank">@nox_mangaka</a></p>
@@ -42,17 +41,21 @@
           <p><i class="fas">𝕏</i> <a href="#" target="_blank">Coming soon</a></p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
         </section>
-
       </div>
 
-      <!-- Right-side placeholder for image -->
+      <!-- Pravá část: obrázek -->
       <div class="right-side">
-        <!-- Sem později vložíš svůj obrázek -->
         <div class="image-placeholder">
           <p>Image goes here</p>
         </div>
       </div>
+
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 NØX. All rights reserved.</p>
+    </footer>
 
   </main>
 
@@ -61,7 +64,7 @@
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let stars = [];
-    const starCount = 120;
+    const starCount = 150;
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
