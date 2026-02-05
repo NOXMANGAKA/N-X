@@ -1,37 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>NØX</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <main class="container">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    <!-- Hero section -->
-    <section class="hero">
-      <h1 class="logo">NØX</h1>
-      <p class="tagline">mangaka · illustration</p>
-      <p class="intro">
-        Welcome to the official website of artist <strong>NØX</strong>. <br>
-        Here you can explore my projects, artwork, and creative journey.
-      </p>
-    </section>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <!-- Contact section -->
-    <section class="contact">
-      <h2>Contact</h2>
-      <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka?igsh=NmR6dnM3a3VxZzV1" target="_blank">@nox_mangaka</a></p>
-      <p><i class="fab fa-youtube"></i> <a href="#" target="_blank">Coming soon</a></p>
-      <p><i class="fab fa-x-twitter"></i> <a href="#" target="_blank">Coming soon</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
-    </section>
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #eaeaea;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 
-  </main>
-</body>
-</html>
+  /* Animated dark gradient background */
+  background: linear-gradient(-45deg, #0b0b0d, #1a1a2e, #0b0b0d, #1a1a2e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  max-width: 800px;
+  padding: 40px;
+  text-align: center;
+}
+
+.hero .logo {
+  font-size: 72px;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+}
+
+.hero .tagline {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.hero .intro {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+.contact h2 {
+  font-size: 28px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.contact a {
+  color: #eaeaea;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: #f39c12;
+}
+
+.contact i {
+  margin-right: 10px;
+  color: #f39c12;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .hero .logo {
+    font-size: 48px;
+  }
+  .hero .tagline {
+    font-size: 14px;
+  }
+}
+
 
 
 
