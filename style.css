@@ -51,19 +51,19 @@ canvas#stars {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -40px; /* posun nahoru */
+  margin-top: -60px; /* posun obrázku nahoru */
 }
 
 #nox-symbol {
-  max-width: 180px; /* zmenšený obrázek */
+  max-width: 400px; /* velký obrázek */
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* mezera pod obrázkem */
 }
 
 /* Gallery link */
 .gallery-link {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 28px;
+  font-size: 32px; /* větší text */
   color: #f39c12;
   text-decoration: none;
   transition: color 0.3s;
@@ -133,38 +133,6 @@ footer {
   color: #777;
 }
 
-/* PROJECTS / GALLERY */
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.project-card {
-  width: 200px;
-  text-align: center;
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: transform 0.3s;
-}
-
-.project-card img:hover {
-  transform: scale(1.05);
-}
-
-.project-card h3 {
-  margin-top: 10px;
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 18px;
-  color: #fff;
-}
-
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .main-content {
@@ -180,13 +148,5 @@ footer {
 
   .symbol-container {
     margin-top: 0;
-  }
-
-  .projects {
-    gap: 15px;
-  }
-
-  .project-card {
-    width: 45%;
   }
 }
