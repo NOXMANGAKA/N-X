@@ -15,8 +15,8 @@ canvas#stars {
   z-index: 0;
 }
 
-/* KONTEJNER HLAVNÍ STRÁNKY */
-.container {
+/* KONTEJNER */
+.container, .gallery-container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -40,8 +40,8 @@ canvas#stars {
 .right-side {
   flex: 1;
   display: flex;
-  justify-content: center; /* horizontálně uprostřed */
-  align-items: center;     /* vertikálně uprostřed */
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   position: relative;
 }
@@ -60,7 +60,7 @@ canvas#stars {
   margin-bottom: 30px;
 }
 
-/* ODKAZ NA GALERII */
+/* ODKAZY */
 .gallery-link {
   font-family: 'Cinzel Decorative', serif;
   font-size: 32px;
@@ -133,18 +133,7 @@ footer {
   color: #777;
 }
 
-/* ====================== */
 /* GALERIE */
-.gallery-container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  min-height: 100vh;
-}
-
-/* GALERIE HLAVIČKA */
 .gallery-header {
   display: flex;
   justify-content: center;
@@ -155,7 +144,6 @@ footer {
   text-align: center;
 }
 
-/* LEVÁ, PRAVÁ NADPISY */
 .gallery-left h2,
 .gallery-right h2 {
   font-family: 'Cinzel Decorative', serif;
@@ -165,7 +153,6 @@ footer {
   padding: 0 20px;
 }
 
-/* BÍLÉ ČÁRY MEZI NADPISY */
 .gallery-left h2::after,
 .gallery-right h2::before {
   content: "";
@@ -176,15 +163,9 @@ footer {
   background: #fff;
 }
 
-.gallery-left h2::after {
-  right: -50px;
-}
+.gallery-left h2::after { right: -50px; }
+.gallery-right h2::before { left: -50px; }
 
-.gallery-right h2::before {
-  left: -50px;
-}
-
-/* STŘEDOVÝ NADPIS */
 .gallery-center h1 {
   font-family: 'Cinzel Decorative', serif;
   font-size: 36px;
@@ -192,39 +173,27 @@ footer {
   margin: 0 20px;
 }
 
-/* RESPONSIVE PRO GALERII */
+/* MANGA GALERIE */
+.manga-gallery {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.manga-image {
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.2);
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .main-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .right-side {
-    height: auto;
-    margin-top: 40px;
-    justify-content: center;
-  }
-
-  .symbol-container {
-    margin-top: 0;
-  }
-
-  .gallery-header {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .gallery-left h2::after,
-  .gallery-right h2::before {
-    display: none;
-  }
-
-  .gallery-center h1 {
-    font-size: 28px;
-  }
-
-  .gallery-left h2,
-  .gallery-right h2 {
-    font-size: 24px;
-  }
+  .main-content { flex-direction: column; align-items: center; }
+  .right-side { height: auto; margin-top: 40px; justify-content: center; }
+  .symbol-container { margin-top: 0; }
+  .gallery-header { flex-direction: column; gap: 20px; }
+  .gallery-left h2::after, .gallery-right h2::before { display: none; }
+  .gallery-center h1 { font-size: 28px; }
+  .gallery-left h2, .gallery-right h2 { font-size: 24px; }
 }
