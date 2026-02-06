@@ -15,51 +15,50 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Animated stars background -->
   <canvas id="stars"></canvas>
 
   <main class="container">
 
-    <!-- Flex layout: levá obsahová část + pravá pro obrázek -->
     <div class="main-content">
 
-      <!-- Levá část: Hero + Kontakt -->
+      <!-- LEFT SIDE -->
       <div class="left-side">
         <section class="hero">
           <h1 class="logo">NØX</h1>
           <p class="tagline">mangaka · illustration</p>
           <p class="intro">
             Welcome to the official website of artist <strong>NØX</strong>.<br>
-                     Here you can see my projects.
+            Here you can see my projects.
           </p>
         </section>
 
         <section class="contact">
           <h2>Contact</h2>
-          <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka?igsh=NmR6dnM3a3VxZzV1" target="_blank">@nox_mangaka</a></p>
-          <p><i class="fab fa-youtube"></i> <a href="#" target="_blank">Coming soon</a></p>
-          <p><i class="fas">𝕏</i> <a href="#" target="_blank">Coming soon</a></p>
+          <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka" target="_blank">@nox_mangaka</a></p>
+          <p><i class="fab fa-youtube"></i> Coming soon</p>
+          <p><i class="fas">𝕏</i> Coming soon</p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
         </section>
       </div>
 
-      <!-- Pravá část: obrázek -->
+      <!-- RIGHT SIDE -->
       <div class="right-side">
-        <div class="image-placeholder">
-          <p>Image goes here</p>
+        <div class="symbol-frame">
+          <img src="nox-symbol.png" alt="NØX symbol">
         </div>
       </div>
 
     </div>
 
-    <!-- Footer -->
     <footer>
       <p>&copy; 2026 NØX. All rights reserved.</p>
     </footer>
 
   </main>
 
-  <!-- Stars animation script -->
+  <!-- Stars animation -->
   <script>
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
@@ -76,25 +75,25 @@
 
     function createStars() {
       stars = [];
-      for(let i=0;i<starCount;i++){
+      for (let i = 0; i < starCount; i++) {
         stars.push({
-          x: Math.random()*canvas.width,
-          y: Math.random()*canvas.height,
-          radius: Math.random()*1.5+0.5,
-          speed: Math.random()*0.5+0.2
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.5,
+          s: Math.random() * 0.4 + 0.2
         });
       }
     }
 
     function drawStars() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle = 'white';
-      stars.forEach(star=>{
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#fff';
+      stars.forEach(star => {
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI*2);
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
         ctx.fill();
-        star.x += star.speed;
-        if(star.x>canvas.width) star.x = 0;
+        star.x += star.s;
+        if (star.x > canvas.width) star.x = 0;
       });
       requestAnimationFrame(drawStars);
     }
@@ -102,6 +101,6 @@
     createStars();
     drawStars();
   </script>
+
 </body>
 </html>
-
