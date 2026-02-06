@@ -1,4 +1,4 @@
-/* BASE */
+/* BASE STYLY */
 html, body {
   margin: 0;
   padding: 0;
@@ -8,14 +8,14 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Stars canvas */
+/* HVĚZDNÉ POZADÍ */
 canvas#stars {
   position: fixed;
   inset: 0;
   z-index: 0;
 }
 
-/* CONTAINER */
+/* KONTEJNER HLAVNÍ STRÁNKY */
 .container {
   position: relative;
   z-index: 1;
@@ -24,43 +24,43 @@ canvas#stars {
   min-height: 100vh;
 }
 
-/* LAYOUT */
+/* HLAVNÍ LAYOUT */
 .main-content {
   display: flex;
   gap: 40px;
   align-items: flex-start;
 }
 
-/* LEFT SIDE */
+/* LEVÁ STRANA (TEXT, HERO, KONTAKTY) */
 .left-side {
   flex: 1;
 }
 
-/* RIGHT SIDE */
+/* PRAVÁ STRANA (SYMBOL) */
 .right-side {
   flex: 1;
   display: flex;
-  justify-content: center; /* horizontální centrování */
-  align-items: center; /* vertikální centrování */
-  height: 100vh; /* zabírá celou výšku stránky */
+  justify-content: center; /* horizontálně uprostřed */
+  align-items: center;     /* vertikálně uprostřed */
+  height: 100vh;
   position: relative;
 }
 
-/* kontejner pro symbol a link */
+/* KONTEJNER SYMBOLU + GALLERY LINK */
 .symbol-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* velký obrázek */
+/* VELKÝ OBRÁZEK SYMBOLU */
 #nox-symbol {
-  max-width: 450px; /* větší obrázek */
+  max-width: 450px;
   height: auto;
-  margin-bottom: 30px; /* mezera pod obrázkem */
+  margin-bottom: 30px;
 }
 
-/* Gallery link */
+/* ODKAZ NA GALERII */
 .gallery-link {
   font-family: 'Cinzel Decorative', serif;
   font-size: 32px;
@@ -98,7 +98,7 @@ canvas#stars {
   color: #ddd;
 }
 
-/* CONTACT */
+/* KONTAKTY */
 .contact {
   margin-top: 60px;
   text-align: center;
@@ -133,7 +133,66 @@ footer {
   color: #777;
 }
 
-/* RESPONSIVE */
+/* ====================== */
+/* GALERIE */
+.gallery-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  min-height: 100vh;
+}
+
+/* GALERIE HLAVIČKA */
+.gallery-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* LEVÁ, PRAVÁ NADPISY */
+.gallery-left h2,
+.gallery-right h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 28px;
+  color: #fff;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* BÍLÉ ČÁRY MEZI NADPISY */
+.gallery-left h2::after,
+.gallery-right h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: #fff;
+}
+
+.gallery-left h2::after {
+  right: -50px;
+}
+
+.gallery-right h2::before {
+  left: -50px;
+}
+
+/* STŘEDOVÝ NADPIS */
+.gallery-center h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 36px;
+  color: #f39c12;
+  margin: 0 20px;
+}
+
+/* RESPONSIVE PRO GALERII */
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
@@ -148,5 +207,24 @@ footer {
 
   .symbol-container {
     margin-top: 0;
+  }
+
+  .gallery-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gallery-left h2::after,
+  .gallery-right h2::before {
+    display: none;
+  }
+
+  .gallery-center h1 {
+    font-size: 28px;
+  }
+
+  .gallery-left h2,
+  .gallery-right h2 {
+    font-size: 24px;
   }
 }
