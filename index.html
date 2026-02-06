@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NØX</title>
+  <title>NOX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- STAR BACKGROUND -->
+  <!-- Animated stars background -->
   <canvas id="stars"></canvas>
 
   <main class="container">
@@ -22,26 +25,41 @@
 
       <!-- LEFT SIDE -->
       <div class="left-side">
-        <h1 class="logo">NØX</h1>
-        <p class="tagline">mangaka · illustration</p>
+        <section class="hero">
+          <h1 class="logo">NOX</h1>
+          <p class="tagline">mangaka · illustration</p>
+          <p class="intro">
+            Welcome to the official website of artist <strong>NOX</strong>.<br>
+            Here you can see my projects.
+          </p>
+        </section>
 
-        <div class="contact">
-          <p>Instagram: <a href="https://www.instagram.com/nox_mangaka" target="_blank">@nox_mangaka</a></p>
-          <p>Email: <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
-        </div>
+        <section class="contact">
+          <h2>Contact</h2>
+          <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka" target="_blank">@nox_mangaka</a></p>
+          <p><i class="fab fa-youtube"></i> Coming soon</p>
+          <p><i class="fas">??</i> Coming soon</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
+        </section>
       </div>
 
       <!-- RIGHT SIDE -->
       <div class="right-side">
-        <img class="symbol" src="nox-symbol.png" alt="NØX symbol">
-        <a href="gallery.html" class="gallery-link">GALLERY</a>
+        <div class="symbol-container">
+          <img id="nox-symbol" src="nox-symbol.png" alt="NOX symbol">
+          <a href="gallery.html" class="gallery-link">Gallery</a>
+        </div>
       </div>
 
     </div>
 
+    <footer>
+      <p>&copy; 2026 NOX. All rights reserved.</p>
+    </footer>
+
   </main>
 
-  <!-- STARS SCRIPT -->
+  <!-- Stars animation -->
   <script>
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
@@ -56,18 +74,21 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    for (let i = 0; i < starCount; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.5,
-        s: Math.random() * 0.3 + 0.2
-      });
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.5,
+          s: Math.random() * 0.4 + 0.2
+        });
+      }
     }
 
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#fff";
+      ctx.fillStyle = '#fff';
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
@@ -78,6 +99,7 @@
       requestAnimationFrame(drawStars);
     }
 
+    createStars();
     drawStars();
   </script>
 
