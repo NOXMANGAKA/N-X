@@ -2,30 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NOX Gallery Page</title>
+  <title>NØX Gallery - Detail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .nox-gallery-page { display: flex; flex-direction: column; align-items: center; padding: 40px; min-height: 100vh; position: relative; z-index: 1; color: #fff; text-align: center; }
+    h1 { font-family: 'Cinzel Decorative', serif; font-size: 36px; color: #f39c12; margin-bottom: 40px; }
+    .back-button { position: fixed; top: 20px; right: 20px; background: rgba(255,255,255,0.1); color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-family: 'Roboto Mono', monospace; transition: background 0.3s, color 0.3s; z-index: 10; }
+    .back-button:hover { background: rgba(243,156,18,0.8); color: #0b0b0d; }
+  </style>
 </head>
 <body>
+  <canvas id="stars"></canvas>
+  <a href="gallery.html" class="back-button">← Back</a>
 
-<canvas id="stars"></canvas>
+  <main class="nox-gallery-page">
+    <h1>NØX Gallery</h1>
+    <!-- Zde budeš přidávat obsah detailní galerie -->
+  </main>
 
-<main class="gallery-container">
-  <h1 class="gallery-title">NOX Gallery</h1>
-  <footer>
-    <p>&copy; 2026 NOX. All rights reserved.</p>
-  </footer>
-</main>
-
-<script>
-const canvas=document.getElementById('stars');const ctx=canvas.getContext('2d');let stars=[];const starCount=150;
-function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-window.addEventListener('resize',resizeCanvas);resizeCanvas();
-for(let i=0;i<starCount;i++){stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+0.5,s:Math.random()*0.3+0.2});}
-function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#fff";stars.forEach(star=>{ctx.beginPath();ctx.arc(star.x,star.y,star.r,0,Math.PI*2);ctx.fill();star.x+=star.s;if(star.x>canvas.width)star.x=0;});requestAnimationFrame(drawStars);}
-drawStars();
-</script>
-
+  <script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const starCount = 150;
+    function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    function createStars(){ stars=[]; for(let i=0;i<starCount;i++){ stars.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.5+0.5, s:Math.random()*0.4+0.2}); } }
+    function drawStars(){ ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='#fff'; stars.forEach(star=>{ ctx.beginPath(); ctx.arc(star.x,star.y,star.r,0,Math.PI*2); ctx.fill(); star.x+=star.s; if(star.x>canvas.width) star.x=0; }); requestAnimationFrame(drawStars); }
+    createStars(); drawStars();
+  </script>
 </body>
 </html>
