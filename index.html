@@ -4,66 +4,49 @@
   <meta charset="UTF-8">
   <title>NØX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Animated stars background -->
-  <canvas id="stars"></canvas>
-
-  <!-- Hudba na pozadí -->
+  <!-- Hudba -->
   <audio id="bg-music" src="desifreemusic-copyright-free-background-music-no-copyright-music-406802.mp3" loop autoplay></audio>
-  <button id="toggle-music">🔊 Play Music</button>
+  <button id="toggle-music">🔊</button>
+
+  <!-- Hvězdné pozadí -->
+  <canvas id="stars"></canvas>
 
   <main class="container">
     <div class="main-content">
-
-      <!-- LEFT SIDE -->
+      <!-- Levá strana -->
       <div class="left-side">
         <section class="hero">
           <h1 class="logo">NØX</h1>
           <p class="tagline">mangaka · illustration</p>
-          <p class="intro">
-            Welcome to the official website of artist <strong>NØX</strong>.<br>
-            Here you can see my projects.
-          </p>
+          <p class="intro">Welcome to the official website of artist <strong>NØX</strong>.<br>Here you can see my projects.</p>
         </section>
-
         <section class="contact">
           <h2>Contact</h2>
           <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka" target="_blank">@nox_mangaka</a></p>
           <p><i class="fab fa-youtube"></i> Coming soon</p>
-          <p><i class="fas">𝕏</i> Coming soon</p>
+          <p><i class="fas">??</i> Coming soon</p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
         </section>
       </div>
 
-      <!-- RIGHT SIDE -->
+      <!-- Pravá strana -->
       <div class="right-side">
         <div class="symbol-container">
           <img id="nox-symbol" src="nox-symbol.png" alt="NØX symbol">
           <a href="gallery.html" class="gallery-link">Gallery</a>
         </div>
       </div>
-
     </div>
-
-    <footer>
-      <p>&copy; 2026 NØX. All rights reserved.</p>
-    </footer>
-
   </main>
 
-  <!-- Stars animation -->
   <script>
+    // Hvězdné pozadí
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let stars = [];
@@ -80,45 +63,32 @@
     function createStars() {
       stars = [];
       for (let i = 0; i < starCount; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.5 + 0.5,
-          s: Math.random() * 0.4 + 0.2
-        });
+        stars.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.5+0.5, s: Math.random()*0.4+0.2});
       }
     }
 
     function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#fff';
-      stars.forEach(star => {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle='#fff';
+      stars.forEach(star=>{
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI*2);
         ctx.fill();
         star.x += star.s;
-        if (star.x > canvas.width) star.x = 0;
+        if(star.x>canvas.width) star.x=0;
       });
       requestAnimationFrame(drawStars);
     }
 
     createStars();
     drawStars();
-  </script>
 
-  <!-- Hudba toggle -->
-  <script>
+    // Hudba toggle
     const music = document.getElementById('bg-music');
-    const btn = document.getElementById('toggle-music');
-
-    btn.addEventListener('click', () => {
-      if(music.paused){
-        music.play();
-        btn.textContent = "🔊 Play Music";
-      } else {
-        music.pause();
-        btn.textContent = "🔇 Mute";
-      }
+    const toggle = document.getElementById('toggle-music');
+    toggle.addEventListener('click', ()=>{
+      if(music.paused){ music.play(); toggle.textContent='🔊'; }
+      else { music.pause(); toggle.textContent='🔇'; }
     });
   </script>
 
