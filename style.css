@@ -16,7 +16,7 @@ canvas#stars {
 }
 
 /* KONTEJNER HLAVNÍ STRÁNKY */
-.container {
+.container, .gallery-container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -55,23 +55,16 @@ canvas#stars {
 
 /* VELKÝ OBRÁZEK SYMBOLU */
 #nox-symbol,
-#gallery-image {
-  max-width: 450px;
-  height: auto;
-  margin-bottom: 30px;
-}
-
-/* GALERIE OBRÁZKŮ MANGA */
+#gallery-image,
 .manga-image {
-  max-width: 90%; /* menší než původní, hodí se pro více obrázků */
+  max-width: 450px;
   height: auto;
   margin-bottom: 30px;
   display: block;
 }
 
 /* ODKAZY NA GALERII */
-.gallery-link,
-.back-button {
+.gallery-link {
   font-family: 'Cinzel Decorative', serif;
   font-size: 32px;
   color: #f39c12;
@@ -80,8 +73,7 @@ canvas#stars {
   margin-top: 10px;
 }
 
-.gallery-link:hover,
-.back-button:hover {
+.gallery-link:hover {
   color: #fff;
 }
 
@@ -146,16 +138,6 @@ footer {
 }
 
 /* ================= GALERIE ================= */
-.gallery-container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  min-height: 100vh;
-}
-
-/* GALERIE HLAVIČKA */
 .gallery-header {
   display: flex;
   justify-content: center;
@@ -166,7 +148,6 @@ footer {
   text-align: center;
 }
 
-/* LEVÁ, PRAVÁ NADPISY */
 .gallery-left h2,
 .gallery-right h2 {
   font-family: 'Cinzel Decorative', serif;
@@ -176,7 +157,6 @@ footer {
   padding: 0 20px;
 }
 
-/* BÍLÉ ČÁRY MEZI NADPISY */
 .gallery-left h2::after,
 .gallery-right h2::before {
   content: "";
@@ -195,7 +175,6 @@ footer {
   left: -50px;
 }
 
-/* STŘEDOVÝ NADPIS */
 .gallery-center h1 {
   font-family: 'Cinzel Decorative', serif;
   font-size: 36px;
@@ -203,18 +182,20 @@ footer {
   margin: 0 20px;
 }
 
-/* BACK BUTTON */
+/* ================= BUTTONS ================= */
 .back-button {
   position: fixed;
   top: 20px;
-  left: 20px;
+  right: 20px;
   background: rgba(255,255,255,0.1);
   color: #fff;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
   font-family: 'Roboto Mono', monospace;
   cursor: pointer;
   z-index: 10;
+  font-size: 14px;
+  text-decoration: none;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -223,18 +204,18 @@ footer {
   color: #0b0b0d;
 }
 
-/* TOGGLE MUSIC BUTTON */
 #toggle-music {
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: 90px;
   background: rgba(255,255,255,0.1);
   color: #fff;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
   font-family: 'Roboto Mono', monospace;
   cursor: pointer;
   z-index: 10;
+  font-size: 14px;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -277,5 +258,12 @@ footer {
   .gallery-left h2,
   .gallery-right h2 {
     font-size: 24px;
+  }
+
+  #toggle-music, .back-button {
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }
