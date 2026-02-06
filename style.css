@@ -133,6 +133,38 @@ footer {
   color: #777;
 }
 
+/* PROJECTS / GALLERY */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.project-card {
+  width: 200px;
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.3s;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  margin-top: 10px;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 18px;
+  color: #fff;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .main-content {
@@ -144,5 +176,17 @@ footer {
     height: auto;
     margin-top: 40px;
     justify-content: center;
+  }
+
+  .symbol-container {
+    margin-top: 0;
+  }
+
+  .projects {
+    gap: 15px;
+  }
+
+  .project-card {
+    width: 45%;
   }
 }
