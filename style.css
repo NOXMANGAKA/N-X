@@ -3,11 +3,22 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto Mono', monospace;
-  background: #0b0b0d;
+  background: #0b0b0d; /* tmavé pozadí, můžeš změnit na transparent pokud chceš */
   color: #fff;
   overflow-x: hidden;
 }
 
+/* NØX symbol nahoře vpravo */
+#nox-symbol {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px; /* velikost uprav podle potřeby */
+  height: auto;
+  z-index: 10;
+}
+
+/* Stars canvas */
 canvas#stars {
   position: fixed;
   inset: 0;
@@ -34,13 +45,6 @@ canvas#stars {
   flex: 1;
 }
 
-.right-side {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin-top: 120px;
-}
-
 /* HERO */
 .hero {
   text-align: center;
@@ -64,26 +68,6 @@ canvas#stars {
   margin: auto;
   line-height: 1.6;
   color: #ddd;
-}
-
-/* SYMBOL FRAME */
-.symbol-frame {
-  position: relative;
-  padding: 40px;
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(2px);
-}
-
-.symbol-frame::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-.symbol-frame img {
-  max-width: 260px;
-  filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
 }
 
 /* CONTACT */
@@ -126,9 +110,5 @@ footer {
   .main-content {
     flex-direction: column;
     align-items: center;
-  }
-
-  .right-side {
-    margin-top: 40px;
   }
 }
