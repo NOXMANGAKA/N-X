@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <audio id="bg-music" src="desifreemusic-copyright-free-background-music-no-copyright-music-406802.mp3" loop autoplay></audio>
+  <audio id="bg-music" src="bg-music.mp3" loop autoplay></audio>
   <button id="toggle-music">🔊</button>
   <a href="index.html" class="back-button">Back</a>
 
@@ -17,27 +17,13 @@
 
   <main class="gallery-container">
     <div class="gallery-header">
-      <div class="gallery-left"><h2><a href="manga.html" class="gallery-link">MANGA</a></h2></div>
-      <div class="gallery-center"><h1><a href="noxgallery.html" class="gallery-link">NØX Gallery</a></h1></div>
-      <div class="gallery-right"><h2><a href="animations.html" class="gallery-link">ANIMATION</a></h2></div>
+      <div class="gallery-left"><h2 onclick="location.href='manga.html'">MANGA</h2></div>
+      <div class="gallery-center"><h1 onclick="location.href='noxgallery.html'">NØX Gallery</h1></div>
+      <div class="gallery-right"><h2 onclick="location.href='animations.html'">ANIMATIONS</h2></div>
     </div>
   </main>
 
-  <script>
-    // Stejné hvězdné pozadí a hudba toggle
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    let stars=[];const starCount=150;
-    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-    window.addEventListener('resize',resizeCanvas);resizeCanvas();
-    function createStars(){stars=[];for(let i=0;i<starCount;i++){stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+0.5,s:Math.random()*0.4+0.2});}}
-    function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#fff';stars.forEach(star=>{ctx.beginPath();ctx.arc(star.x,star.y,star.r,0,Math.PI*2);ctx.fill();star.x+=star.s;if(star.x>canvas.width)star.x=0;});requestAnimationFrame(drawStars);}
-    createStars();drawStars();
-
-    const music = document.getElementById('bg-music');
-    const toggle = document.getElementById('toggle-music');
-    toggle.addEventListener('click', ()=>{if(music.paused){music.play();toggle.textContent='🔊';}else{music.pause();toggle.textContent='🔇';}});
-  </script>
-
+  <script src="stars.js"></script>
+  <script src="music.js"></script>
 </body>
 </html>
