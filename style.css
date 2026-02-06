@@ -40,16 +40,37 @@ canvas#stars {
 .right-side {
   flex: 1;
   display: flex;
-  justify-content: flex-end; /* obrázek napravo */
-  align-items: flex-start;   /* nahoře */
-  height: 50vh;              /* horní polovina pravé strany */
+  justify-content: center;
+  align-items: flex-start;
+  height: 50vh; /* horní polovina pravé strany */
   position: relative;
 }
 
-/* NØX SYMBOL */
+/* kontejner pro symbol a link */
+.symbol-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -40px; /* posun nahoru */
+}
+
 #nox-symbol {
-  max-width: 100%;
+  max-width: 180px; /* zmenšený obrázek */
   height: auto;
+  margin-bottom: 20px;
+}
+
+/* Gallery link */
+.gallery-link {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 28px;
+  color: #f39c12;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.gallery-link:hover {
+  color: #fff;
 }
 
 /* HERO */
