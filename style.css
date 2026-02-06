@@ -1,4 +1,4 @@
-/* BASE STYLY */
+/* ================= BASE STYLY ================= */
 html, body {
   margin: 0;
   padding: 0;
@@ -15,8 +15,8 @@ canvas#stars {
   z-index: 0;
 }
 
-/* KONTEJNER */
-.container, .gallery-container {
+/* KONTEJNER HLAVNÍ STRÁNKY */
+.container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -36,7 +36,7 @@ canvas#stars {
   flex: 1;
 }
 
-/* PRAVÁ STRANA (SYMBOL) */
+/* PRAVÁ STRANA (SYMBOL / OBRÁZKY) */
 .right-side {
   flex: 1;
   display: flex;
@@ -46,7 +46,7 @@ canvas#stars {
   position: relative;
 }
 
-/* KONTEJNER SYMBOLU + GALLERY LINK */
+/* SYMBOL / OBRÁZKOVÝ KONTEJNER */
 .symbol-container {
   display: flex;
   flex-direction: column;
@@ -54,22 +54,34 @@ canvas#stars {
 }
 
 /* VELKÝ OBRÁZEK SYMBOLU */
-#nox-symbol {
+#nox-symbol,
+#gallery-image {
   max-width: 450px;
   height: auto;
   margin-bottom: 30px;
 }
 
-/* ODKAZY */
-.gallery-link {
+/* GALERIE OBRÁZKŮ MANGA */
+.manga-image {
+  max-width: 90%; /* menší než původní, hodí se pro více obrázků */
+  height: auto;
+  margin-bottom: 30px;
+  display: block;
+}
+
+/* ODKAZY NA GALERII */
+.gallery-link,
+.back-button {
   font-family: 'Cinzel Decorative', serif;
   font-size: 32px;
   color: #f39c12;
   text-decoration: none;
   transition: color 0.3s;
+  margin-top: 10px;
 }
 
-.gallery-link:hover {
+.gallery-link:hover,
+.back-button:hover {
   color: #fff;
 }
 
@@ -133,7 +145,17 @@ footer {
   color: #777;
 }
 
-/* GALERIE */
+/* ================= GALERIE ================= */
+.gallery-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  min-height: 100vh;
+}
+
+/* GALERIE HLAVIČKA */
 .gallery-header {
   display: flex;
   justify-content: center;
@@ -144,6 +166,7 @@ footer {
   text-align: center;
 }
 
+/* LEVÁ, PRAVÁ NADPISY */
 .gallery-left h2,
 .gallery-right h2 {
   font-family: 'Cinzel Decorative', serif;
@@ -153,6 +176,7 @@ footer {
   padding: 0 20px;
 }
 
+/* BÍLÉ ČÁRY MEZI NADPISY */
 .gallery-left h2::after,
 .gallery-right h2::before {
   content: "";
@@ -163,9 +187,15 @@ footer {
   background: #fff;
 }
 
-.gallery-left h2::after { right: -50px; }
-.gallery-right h2::before { left: -50px; }
+.gallery-left h2::after {
+  right: -50px;
+}
 
+.gallery-right h2::before {
+  left: -50px;
+}
+
+/* STŘEDOVÝ NADPIS */
 .gallery-center h1 {
   font-family: 'Cinzel Decorative', serif;
   font-size: 36px;
@@ -173,27 +203,79 @@ footer {
   margin: 0 20px;
 }
 
-/* MANGA GALERIE */
-.manga-gallery {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+/* BACK BUTTON */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: 'Roboto Mono', monospace;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, color 0.3s;
 }
 
-.manga-image {
-  max-width: 600px;
-  width: 100%;
-  border: 1px solid rgba(255,255,255,0.2);
-  filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+.back-button:hover {
+  background: rgba(243,156,18,0.8);
+  color: #0b0b0d;
+}
+
+/* TOGGLE MUSIC BUTTON */
+#toggle-music {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: 'Roboto Mono', monospace;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, color 0.3s;
+}
+
+#toggle-music:hover {
+  background: rgba(243,156,18,0.8);
+  color: #0b0b0d;
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .main-content { flex-direction: column; align-items: center; }
-  .right-side { height: auto; margin-top: 40px; justify-content: center; }
-  .symbol-container { margin-top: 0; }
-  .gallery-header { flex-direction: column; gap: 20px; }
-  .gallery-left h2::after, .gallery-right h2::before { display: none; }
-  .gallery-center h1 { font-size: 28px; }
-  .gallery-left h2, .gallery-right h2 { font-size: 24px; }
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-side {
+    height: auto;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  .symbol-container {
+    margin-top: 0;
+  }
+
+  .gallery-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gallery-left h2::after,
+  .gallery-right h2::before {
+    display: none;
+  }
+
+  .gallery-center h1 {
+    font-size: 28px;
+  }
+
+  .gallery-left h2,
+  .gallery-right h2 {
+    font-size: 24px;
+  }
 }
