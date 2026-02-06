@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NOX</title>
+  <title>NØX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Fonts -->
@@ -19,17 +19,20 @@
   <!-- Animated stars background -->
   <canvas id="stars"></canvas>
 
-  <main class="container">
+  <!-- Hudba na pozadí -->
+  <audio id="bg-music" src="desifreemusic-copyright-free-background-music-no-copyright-music-406802.mp3" loop autoplay></audio>
+  <button id="toggle-music">🔊 Play Music</button>
 
+  <main class="container">
     <div class="main-content">
 
       <!-- LEFT SIDE -->
       <div class="left-side">
         <section class="hero">
-          <h1 class="logo">NOX</h1>
+          <h1 class="logo">NØX</h1>
           <p class="tagline">mangaka · illustration</p>
           <p class="intro">
-            Welcome to the official website of artist <strong>NOX</strong>.<br>
+            Welcome to the official website of artist <strong>NØX</strong>.<br>
             Here you can see my projects.
           </p>
         </section>
@@ -38,7 +41,7 @@
           <h2>Contact</h2>
           <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka" target="_blank">@nox_mangaka</a></p>
           <p><i class="fab fa-youtube"></i> Coming soon</p>
-          <p><i class="fas">??</i> Coming soon</p>
+          <p><i class="fas">𝕏</i> Coming soon</p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
         </section>
       </div>
@@ -46,7 +49,7 @@
       <!-- RIGHT SIDE -->
       <div class="right-side">
         <div class="symbol-container">
-          <img id="nox-symbol" src="nox-symbol.png" alt="NOX symbol">
+          <img id="nox-symbol" src="nox-symbol.png" alt="NØX symbol">
           <a href="gallery.html" class="gallery-link">Gallery</a>
         </div>
       </div>
@@ -54,7 +57,7 @@
     </div>
 
     <footer>
-      <p>&copy; 2026 NOX. All rights reserved.</p>
+      <p>&copy; 2026 NØX. All rights reserved.</p>
     </footer>
 
   </main>
@@ -101,6 +104,22 @@
 
     createStars();
     drawStars();
+  </script>
+
+  <!-- Hudba toggle -->
+  <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('toggle-music');
+
+    btn.addEventListener('click', () => {
+      if(music.paused){
+        music.play();
+        btn.textContent = "🔊 Play Music";
+      } else {
+        music.pause();
+        btn.textContent = "🔇 Mute";
+      }
+    });
   </script>
 
 </body>
