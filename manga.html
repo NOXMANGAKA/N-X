@@ -5,96 +5,70 @@
   <title>MANGA - NØX Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  
+
   <style>
-    /* Specifické pro Manga stránku */
     .manga-page {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px;
       min-height: 100vh;
-      z-index: 1;
       position: relative;
-      color: #fff;
+      z-index: 1;
       text-align: center;
+      color: #fff;
     }
 
-    .manga-page h1 {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 36px;
-      color: #f39c12;
-      margin-bottom: 40px;
-    }
+    .manga-page h1 { font-family: 'Cinzel Decorative', serif; font-size: 36px; color: #f39c12; margin-bottom: 40px; }
 
     .manga-image {
-      max-width: 20%; /* 5× menší než původní */
+      max-width: 20%;
       height: auto;
       margin-bottom: 40px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
       border-radius: 4px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
 
+    .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Roboto Mono', monospace;
+      transition: background 0.3s, color 0.3s;
+      z-index: 10;
+    }
+
+    .back-button:hover { background: rgba(243,156,18,0.8); color: #0b0b0d; }
   </style>
 </head>
 <body>
-
-  <!-- Animated stars background -->
   <canvas id="stars"></canvas>
+  <a href="gallery.html" class="back-button">← Back</a>
 
   <main class="manga-page">
     <h1>MANGA</h1>
     <img src="mccv.jpg" alt="MANGA IMAGE" class="manga-image">
+    <!-- Další obrázky můžeš přidávat zde -->
   </main>
 
-  <!-- Stars animation -->
   <script>
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let stars = [];
     const starCount = 150;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
+    function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-
-    function createStars() {
-      stars = [];
-      for (let i = 0; i < starCount; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.5 + 0.5,
-          s: Math.random() * 0.4 + 0.2
-        });
-      }
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#fff';
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fill();
-        star.x += star.s;
-        if (star.x > canvas.width) star.x = 0;
-      });
-      requestAnimationFrame(drawStars);
-    }
-
-    createStars();
-    drawStars();
+    function createStars(){ stars=[]; for(let i=0;i<starCount;i++){ stars.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.5+0.5, s:Math.random()*0.4+0.2}); } }
+    function drawStars(){ ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle='#fff'; stars.forEach(star=>{ ctx.beginPath(); ctx.arc(star.x,star.y,star.r,0,Math.PI*2); ctx.fill(); star.x+=star.s; if(star.x>canvas.width) star.x=0; }); requestAnimationFrame(drawStars); }
+    createStars(); drawStars();
   </script>
-
 </body>
 </html>
