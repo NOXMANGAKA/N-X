@@ -4,32 +4,97 @@
   <meta charset="UTF-8">
   <title>MANGA - NØX Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Specifické pro Manga stránku */
+    .manga-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      min-height: 100vh;
+      z-index: 1;
+      position: relative;
+      color: #fff;
+      text-align: center;
+    }
+
+    .manga-page h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 36px;
+      color: #f39c12;
+      margin-bottom: 40px;
+    }
+
+    .manga-image {
+      max-width: 20%; /* 5× menší než původní */
+      height: auto;
+      margin-bottom: 40px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+
+  </style>
 </head>
 <body>
 
-<canvas id="stars"></canvas>
+  <!-- Animated stars background -->
+  <canvas id="stars"></canvas>
 
-<main class="gallery-container">
-  <h1 class="gallery-title">MANGA</h1>
-  <div class="manga-gallery">
+  <main class="manga-page">
+    <h1>MANGA</h1>
     <img src="mccv.jpg" alt="MANGA IMAGE" class="manga-image">
-  </div>
+  </main>
 
-  <footer>
-    <p>&copy; 2026 NØX. All rights reserved.</p>
-  </footer>
-</main>
+  <!-- Stars animation -->
+  <script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const starCount = 150;
 
-<script>
-const canvas=document.getElementById('stars');const ctx=canvas.getContext('2d');let stars=[];const starCount=150;
-function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-window.addEventListener('resize',resizeCanvas);resizeCanvas();
-for(let i=0;i<starCount;i++){stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+0.5,s:Math.random()*0.3+0.2});}
-function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#fff";stars.forEach(star=>{ctx.beginPath();ctx.arc(star.x,star.y,star.r,0,Math.PI*2);ctx.fill();star.x+=star.s;if(star.x>canvas.width)star.x=0;});requestAnimationFrame(drawStars);}
-drawStars();
-</script>
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.5,
+          s: Math.random() * 0.4 + 0.2
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#fff';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+        star.x += star.s;
+        if (star.x > canvas.width) star.x = 0;
+      });
+      requestAnimationFrame(drawStars);
+    }
+
+    createStars();
+    drawStars();
+  </script>
 
 </body>
 </html>
