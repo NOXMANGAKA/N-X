@@ -16,7 +16,6 @@
 </head>
 <body>
 
-  <!-- Animated stars background -->
   <canvas id="stars"></canvas>
 
   <main class="container">
@@ -27,7 +26,7 @@
       <div class="left-side">
         <section class="hero">
           <h1 class="logo">NOX</h1>
-          <p class="tagline">mangaka � illustration</p>
+          <p class="tagline">mangaka · illustration</p>
           <p class="intro">
             Welcome to the official website of artist <strong>NOX</strong>.<br>
             Here you can see my projects.
@@ -38,7 +37,7 @@
           <h2>Contact</h2>
           <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/nox_mangaka" target="_blank">@nox_mangaka</a></p>
           <p><i class="fab fa-youtube"></i> Coming soon</p>
-          <p><i class="fas">??</i> Coming soon</p>
+          <p><i class="fas">𝕏</i> Coming soon</p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:mangaka.nox@gmail.com">mangaka.nox@gmail.com</a></p>
         </section>
       </div>
@@ -46,7 +45,7 @@
       <!-- RIGHT SIDE -->
       <div class="right-side">
         <div class="symbol-container">
-          <img id="nox-symbol" src="nox-symbol.png" alt="NOX symbol">
+          <img id="nox-symbol" src="images/nox-symbol.png" alt="NOX symbol">
           <a href="gallery.html" class="gallery-link">Gallery</a>
         </div>
       </div>
