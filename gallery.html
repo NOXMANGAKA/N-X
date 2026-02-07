@@ -5,33 +5,32 @@
   <title>NØX Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <canvas id="stars"></canvas>
 
-  <main class="gallery-container">
+  <a href="index.html" class="back-button">Back</a>
 
+  <main class="gallery-container">
     <div class="gallery-header">
       <div class="gallery-left">
-        <a href="manga.html"><h2>MANGA</h2></a>
+        <h2 onclick="location.href='manga.html'">MANGA</h2>
       </div>
 
       <div class="gallery-center">
-        <a href="nox-gallery.html"><h1>NØX Gallery</h1></a>
+        <h1 onclick="location.href='nox-gallery.html'" style="cursor:pointer;">NØX Gallery</h1>
       </div>
 
       <div class="gallery-right">
-        <a href="animation.html"><h2>ANIMATION</h2></a>
+        <h2 onclick="location.href='animation.html'">ANIMATION</h2>
       </div>
     </div>
-
-    <footer>
-      <p>&copy; 2026 NOX. All rights reserved.</p>
-    </footer>
-
   </main>
 
   <script>
