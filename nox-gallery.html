@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NOX Gallery</title>
+  <title>NØX Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -10,13 +10,15 @@
 </head>
 <body>
 
+  <!-- Stars background -->
   <canvas id="stars"></canvas>
 
+  <!-- Back button -->
   <a href="gallery.html" class="back-button">Back</a>
 
   <main class="gallery-container">
-    <h1 class="center-title">NOX Gallery</h1>
-    <!-- sem můžeš postupně přidávat obrázky -->
+    <h1 class="center-title">NØX Gallery</h1>
+    <!-- Obrázky zatím žádné -->
   </main>
 
   <script>
@@ -40,7 +42,7 @@
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           r: Math.random() * 1.5 + 0.5,
-          s: Math.random() * 0.4 + 0.2
+          s: Math.random() * 0.2 + 0.1
         });
       }
     }
