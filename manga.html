@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MANGA - NOX Gallery</title>
+  <title>MANGA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -10,18 +10,12 @@
 </head>
 <body>
 
-  <!-- Animated stars background -->
   <canvas id="stars"></canvas>
 
-  <main class="gallery-container">
-    <h1 class="gallery-title">MANGA</h1>
-    <div class="manga-gallery">
-      <img src="mccv.jpg" alt="MANGA IMAGE" class="manga-image">
-    </div>
+  <a href="gallery.html" class="back-button">Back</a>
 
-    <footer>
-      <p>&copy; 2026 NOX. All rights reserved.</p>
-    </footer>
+  <main class="gallery-container">
+    <img class="manga-img" src="images/mccv.jpg" alt="Manga Image">
   </main>
 
   <script>
@@ -38,18 +32,21 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    for (let i = 0; i < starCount; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.5,
-        s: Math.random() * 0.3 + 0.2
-      });
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.5,
+          s: Math.random() * 0.4 + 0.2
+        });
+      }
     }
 
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#fff";
+      ctx.fillStyle = '#fff';
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
@@ -60,6 +57,7 @@
       requestAnimationFrame(drawStars);
     }
 
+    createStars();
     drawStars();
   </script>
 
