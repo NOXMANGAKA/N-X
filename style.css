@@ -40,8 +40,8 @@ canvas#stars {
 .right-side {
   flex: 1;
   display: flex;
-  justify-content: center; /* horizontálně uprostřed */
-  align-items: center;     /* vertikálně uprostřed */
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   position: relative;
 }
@@ -60,16 +60,17 @@ canvas#stars {
   margin-bottom: 30px;
 }
 
-/* ODKAZ NA GALERII */
-.gallery-link {
+/* ODKAZY NA GALERII A STRÁNKY */
+.gallery-link, .nav-link {
   font-family: 'Cinzel Decorative', serif;
   font-size: 32px;
   color: #f39c12;
   text-decoration: none;
   transition: color 0.3s;
+  margin-bottom: 20px;
 }
 
-.gallery-link:hover {
+.gallery-link:hover, .nav-link:hover {
   color: #fff;
 }
 
@@ -169,6 +170,7 @@ footer {
   color: #fff;
   position: relative;
   padding: 0 20px;
+  cursor: pointer;
 }
 
 /* BÍLÉ ČÁRY MEZI NADPISY */
