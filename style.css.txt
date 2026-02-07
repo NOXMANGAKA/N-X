@@ -1,4 +1,4 @@
-/* BASE STYLY */
+/* BASE */
 html, body {
   margin: 0;
   padding: 0;
@@ -8,15 +8,15 @@ html, body {
   overflow-x: hidden;
 }
 
-/* HVÃZDN… POZADÕ */
+/* HVƒöZDN√â POZAD√ç */
 canvas#stars {
   position: fixed;
   inset: 0;
   z-index: 0;
 }
 
-/* KONTEJNER HLAVNÕ STR¡NKY */
-.container {
+/* KONTEJNER */
+.container, .gallery-container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -24,49 +24,42 @@ canvas#stars {
   min-height: 100vh;
 }
 
-/* HLAVNÕ LAYOUT */
+/* LAYOUT */
 .main-content {
   display: flex;
   gap: 40px;
   align-items: flex-start;
 }
 
-/* LEV¡ STRANA (TEXT, HERO, KONTAKTY) */
 .left-side {
   flex: 1;
 }
 
-/* PRAV¡ STRANA (SYMBOL) */
 .right-side {
   flex: 1;
   display: flex;
-  justify-content: center; /* horizont·lnÏ uprost¯ed */
-  align-items: center;     /* vertik·lnÏ uprost¯ed */
-  height: 100vh;
-  position: relative;
+  justify-content: center;
+  margin-top: 120px;
 }
 
-/* KONTEJNER SYMBOLU + GALLERY LINK */
+/* SYMBOL + GALLERY */
 .symbol-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* VELK› OBR¡ZEK SYMBOLU */
 #nox-symbol {
-  max-width: 450px;
-  height: auto;
-  margin-bottom: 30px;
+  max-width: 260px;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
+  margin-bottom: 20px;
 }
 
-/* ODKAZ NA GALERII */
 .gallery-link {
   font-family: 'Cinzel Decorative', serif;
   font-size: 32px;
   color: #f39c12;
   text-decoration: none;
-  transition: color 0.3s;
 }
 
 .gallery-link:hover {
@@ -98,7 +91,7 @@ canvas#stars {
   color: #ddd;
 }
 
-/* KONTAKTY */
+/* CONTACT */
 .contact {
   margin-top: 60px;
   text-align: center;
@@ -133,66 +126,31 @@ footer {
   color: #777;
 }
 
-/* ====================== */
-/* GALERIE */
-.gallery-container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  min-height: 100vh;
-}
-
-/* GALERIE HLAVI»KA */
-.gallery-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  position: relative;
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-/* LEV¡, PRAV¡ NADPISY */
-.gallery-left h2,
-.gallery-right h2 {
+/* BACK BUTTON */
+.back-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
   font-family: 'Cinzel Decorative', serif;
-  font-size: 28px;
-  color: #fff;
-  position: relative;
-  padding: 0 20px;
-}
-
-/* BÕL… »¡RY MEZI NADPISY */
-.gallery-left h2::after,
-.gallery-right h2::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 1px;
-  background: #fff;
-}
-
-.gallery-left h2::after {
-  right: -50px;
-}
-
-.gallery-right h2::before {
-  left: -50px;
-}
-
-/* STÿEDOV› NADPIS */
-.gallery-center h1 {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 36px;
+  font-size: 18px;
   color: #f39c12;
-  margin: 0 20px;
+  text-decoration: none;
+  z-index: 2;
 }
 
-/* RESPONSIVE PRO GALERII */
+.back-button:hover {
+  color: #fff;
+}
+
+/* MANGA IMAGE */
+.manga-img {
+  display: block;
+  max-width: 20%; /* 5x men≈°√≠ ne≈æ p≈Øvodn√≠ */
+  height: auto;
+  margin: 40px auto;
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
@@ -200,31 +158,6 @@ footer {
   }
 
   .right-side {
-    height: auto;
     margin-top: 40px;
-    justify-content: center;
-  }
-
-  .symbol-container {
-    margin-top: 0;
-  }
-
-  .gallery-header {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .gallery-left h2::after,
-  .gallery-right h2::before {
-    display: none;
-  }
-
-  .gallery-center h1 {
-    font-size: 28px;
-  }
-
-  .gallery-left h2,
-  .gallery-right h2 {
-    font-size: 24px;
   }
 }
